@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="global_mini">4dp</dimen>
+    <dimen name="global_two_mini">8dp</dimen>
+    <dimen name="global_middle">16dp</dimen>
+    <dimen name="global_middle_long">24dp</dimen>
+    <dimen name="layout_height_dp">0dp</dimen>
+    <dimen name="font_mini">12sp</dimen>
+    <dimen name="font_standart">14sp</dimen>
+    <dimen name="font_standart_plus">16sp</dimen>
+    <dimen name="font_middle">18sp</dimen>
+    <dimen name="font_big">24sp</dimen>
+    <dimen name="font_very_big">32sp</dimen>
+</resources>

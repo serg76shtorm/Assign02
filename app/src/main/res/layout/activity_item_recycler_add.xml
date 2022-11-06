@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="66dp"
+    android:layout_marginStart="@dimen/global_middle"
+    android:layout_marginTop="@dimen/global_middle"
+    android:layout_marginEnd="@dimen/global_middle"
+    android:background="@drawable/krugliye_ugli"
+    tools:context=".ItemRecyclerAdd">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/global_two_mini"
+        android:layout_marginTop="@dimen/global_two_mini"
+        android:layout_marginBottom="@dimen/global_two_mini"
+        android:background="@tools:sample/avatars"
+        android:src="@drawable/ic_image_in_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/global_middle"
+        android:layout_marginTop="@dimen/global_middle"
+        android:text="@string/username"
+        android:textColor="@color/f_black_light"
+        android:textSize="@dimen/font_middle"
+        app:layout_constraintStart_toEndOf="@id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/global_middle"
+        android:text="@string/career"
+        android:textColor="@color/f_career"
+        android:textSize="@dimen/font_mini"
+        app:layout_constraintStart_toEndOf="@id/imageView"
+        app:layout_constraintTop_toBottomOf="@id/textView2"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="33dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/global_two_mini"
+        android:layout_marginEnd="@dimen/global_middle"
+        android:layout_marginBottom="@dimen/global_two_mini"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_add" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
