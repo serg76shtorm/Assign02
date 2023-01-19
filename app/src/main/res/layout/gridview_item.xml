@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/global_middle">
+
+    <ImageView
+        android:id="@+id/iv_GridView"
+        android:layout_width="@dimen/img_avatar"
+        android:layout_height="@dimen/img_avatar"
+        android:layout_margin="@dimen/global_mini"
+        android:src="@mipmap/ic_launcher"
+        tools:ignore="ContentDescription" />
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContactsProfile">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/layout_height_dp"
+        android:background="@color/c_background_dark"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/global_middle"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView4"
+        app:srcCompat="@drawable/ic_back"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/global_middle"
+        android:layout_marginTop="@dimen/global_middle"
+        android:text="@string/settings"
+        android:textColor="@color/f_white_static"
+        android:textSize="@dimen/font_big"
+        app:layout_constraintStart_toEndOf="@id/imageView7"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/imageView6"
+        android:layout_width="@dimen/picture_user"
+        android:layout_height="@dimen/picture_user"
+        android:layout_marginTop="@dimen/global_middle_long"
+        app:failureImage="@drawable/ic_user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:placeholderImage="@drawable/ic_user" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/picture_user"
+        android:layout_height="@dimen/picture_user"
+        android:layout_marginTop="@dimen/global_middle_long"
+        android:src="@drawable/ic_image_in_circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/global_middle_long"
+        android:text="@string/contactsname"
+        android:textColor="@color/f_white_static"
+        android:textSize="@dimen/font_middle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/global_two_mini"
+        android:text="@string/proger"
+        android:textColor="@color/f_gray_static"
+        android:textSize="@dimen/font_standart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/global_middle"
+        android:gravity="center"
+        android:text="@string/addressUser"
+        android:textColor="@color/f_gray_static"
+        android:textSize="@dimen/font_standart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height_1"
+        android:layout_marginStart="@dimen/global_middle"
+        android:layout_marginEnd="@dimen/global_middle"
+        android:layout_marginBottom="@dimen/global_middle"
+        android:backgroundTint="@color/white"
+        android:text="@string/message"
+        android:textColor="@color/f_black_light"
+        android:textSize="@dimen/font_standart"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:strokeColor="@color/f_black_light"
+        app:strokeWidth="@dimen/global_frame" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height_2"
+        android:layout_marginStart="@dimen/global_middle"
+        android:layout_marginEnd="@dimen/global_middle"
+        android:layout_marginBottom="@dimen/global_middle"
+        android:backgroundTint="@color/c_orange"
+        android:text="@string/view_my_contacts"
+        android:textColor="@color/f_white_static"
+        android:textSize="@dimen/font_standart_plus"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/recycler_item_height"
+        app:constraint_referenced_ids="imageView3, imageView4, imageView5"
+        app:flow_horizontalGap="@dimen/font_very_big"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline3" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_fb"
+        tools:ignore="ContentDescription,MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_in"
+        tools:ignore="ContentDescription,MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_vk"
+        tools:ignore="ContentDescription,MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/recycler_checkbox"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView4"
+        app:srcCompat="@drawable/ic_back"
+        tools:ignore="ContentDescription" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

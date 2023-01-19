@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="textinputlayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/global_middle_long</item>
+        <item name="android:textSize">@dimen/font_standart</item>
+        <item name="android:textColorHint">@color/f_gray_static</item>
+        <item name="hintTextColor">@color/f_gray_static</item>
+        <item name="expandedHintEnabled">false</item>
+    </style>
+
+    <style name="textinputedittext">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/c_background_light</item>
+        <item name="android:textSize">@dimen/font_middle</item>
+        <item name="android:textColor">@color/f_black_light</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:paddingStart">@dimen/layout_height_dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColorHint">@color/f_hint</item>
+        <item name="errorTextColor">@color/f_red_error</item>
+    </style>
+
+    <style name="textinputedrop" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/global_middle_long</item>
+        <item name="android:textSize">@dimen/font_standart</item>
+        <item name="android:textColorHint">@color/f_gray_static</item>
+        <item name="android:background">@color/c_background_light</item>
+        <item name="hintTextColor">@color/f_gray_static</item>
+        <item name="expandedHintEnabled">false</item>
+    </style>
+
+    <style name="BagDialogFragment" />
+
+</resources>

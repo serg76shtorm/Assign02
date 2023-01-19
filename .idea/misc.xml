@@ -4,19 +4,52 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.196" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/btn_check.xml" value="0.287" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/checkbox_selector.xml" value="0.25" />
         <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_add.xml" value="0.309" />
         <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_add_all.xml" value="0.309" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_addfoto.xml" value="0.2745" />
         <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_arrow.xml" value="0.343" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_back.xml" value="0.28" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_back_top.xml" value="0.2335" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_baseline_delete_sweep_24.xml" value="0.2625" />
         <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_basket.xml" value="0.196" />
         <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_basket_all.xml" value="0.309" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_cancel.xml" value="0.197" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_check.xml" value="0.242" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_checked.xml" value="0.222" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_delete_sweep.xml" value="0.28" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_dislike.xml" value="0.2745" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_fb.xml" value="0.222" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_filter.xml" value="0.197" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_g.xml" value="0.2225" />
         <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_image_in_circle.xml" value="0.1605" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_image_in_circle_item.xml" value="0.283" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_in.xml" value="0.305" />
         <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_launcher_background.xml" value="0.196" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_like.xml" value="0.2745" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_like02.xml" value="0.2745" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_my_stars.xml" value="0.222" />
         <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_search.xml" value="0.196" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_uncheck.xml" value="0.242" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_unchecked.xml" value="0.222" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_user.xml" value="0.197" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/ic_vk.xml" value="0.305" />
         <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/krugliye_ugli.xml" value="0.3025" />
-        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/layout/activity_item_recycler_add.xml" value="0.38697916666666665" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/drawable/remove_contact_check_box.xml" value="0.222" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/layout/activity_contacts_profile.xml" value="0.38697916666666665" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/layout/activity_create_user.xml" value="0.33" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/layout/activity_item_recycler_add.xml" value="0.5" />
         <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/layout/activity_item_recycler_del.xml" value="0.5" />
         <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/layout/activity_recycler.xml" value="0.38697916666666665" />
-        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/layout/activity_recycler_add.xml" value="0.3729166666666667" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/layout/activity_recycler_add.xml" value="0.33" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/layout/activity_recycler_del.xml" value="0.38697916666666665" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/layout/dropdown_item.xml" value="0.38697916666666665" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/layout/fragment_avatar_user.xml" value="0.3859375" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/layout/fragment_create_user.xml" value="0.38697916666666665" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/layout/fragment_layout.xml" value="0.25" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/layout/gridview_item.xml" value="0.5" />
+        <entry key="..\:/Program/IdeaProjects/shppAndroid/Assignment02/Assign02/app/src/main/res/layout/toast_layout.xml" value="0.38697916666666665" />
       </map>
     </option>
   </component>

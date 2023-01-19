@@ -1,6 +1,31 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Assign02</string>
     <string name="add_contacts">Add contacts</string>
-    <string name="username">UserName</string>
+    <string name="username">Name</string>
     <string name="career">Career</string>
+    <string name="proger">прогерр</string>
+    <string name="profile">Profile</string>
+    <string name="settings">Settings</string>
+    <string name="todo">TODO</string>
+    <string name="contactsname">Serhii Serhiichyk</string>
+    <string name="address">Address</string>
+    <string name="addressUser">галактика Млечный Путь, Солнецная система,\n планета Земля</string>
+    <string name="message">Message</string>
+    <string name="view_my_contacts">VIEW My contacts</string>
+    <string name="add_to_my_contacts">Add to my contacts</string>
+    <string name="users">Users</string>
+    <string name="contacts">Contacts</string>
+    <string name="all_in">All_IN</string>
+    <string name="create_user">Create User</string>
+    <string name="save">Save</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="phone_num" tools:ignore="TypographyDashes">(264)–654-3762</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="date_start">12/05/1995</string>
+    <string name="jobless">Jobless</string>
+    <string name="unworthy1">Недостоин</string>
+    <string name="unworthy2">Недостойна</string>
+    <string name="unworthy3">Недостойны</string>
+    <string name="avatar">Avatar</string>
 </resources>

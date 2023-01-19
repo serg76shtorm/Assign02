@@ -16,10 +16,12 @@
     <color name="c_background">#ededed</color>
     <color name="c_gradient_start">#DCE3E9</color>
     <color name="f_white">#fafafa</color>
-    <color name="f_white_light">#000000</color>
     <color name="f_gray">#b2b2b3</color>
     <color name="f_gray_light">#bdbdbd</color>
     <color name="f_black_light">#18181f</color>
     <color name="f_red_error">#F93E3E</color>
     <color name="f_career">#828282</color>
+    <color name="f_hint">#E0E0E0</color>
+    <color name="c_dislike">#cd2127</color>
+    <color name="c_like">#50aa27</color>
 </resources>

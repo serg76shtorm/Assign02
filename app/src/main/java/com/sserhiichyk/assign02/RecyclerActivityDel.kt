@@ -2,42 +2,42 @@ package com.sserhiichyk.assign02
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.sserhiichyk.assign02.com.sserhiichyk.assign02.data.Constants
 import com.sserhiichyk.assign02.com.sserhiichyk.assign02.data.Constants.isMultiSelect
-import com.sserhiichyk.assign02.com.sserhiichyk.assign02.fragments.CreateUserDFragment
 import com.sserhiichyk.assign02.com.sserhiichyk.assign02.fragments.ProfileUserDFragment
+import com.sserhiichyk.assign02.com.sserhiichyk.assign02.recycler.TouchHelper
 import com.sserhiichyk.assign02.com.sserhiichyk.assign02.utils.ItemTouchHelperAdapter
 import com.sserhiichyk.assign02.data.DataListViewModel
 import com.sserhiichyk.assign02.data.DataUser
-import com.sserhiichyk.assign02.databinding.ActivityRecyclerAddBinding
-import com.sserhiichyk.assign02.extensions.gone
-import com.sserhiichyk.assign02.extensions.invisible
-import com.sserhiichyk.assign02.extensions.putIntArray
-import com.sserhiichyk.assign02.extensions.visible
-import com.sserhiichyk.assign02.recycler.RecyclerAdapterAdd
+import com.sserhiichyk.assign02.databinding.ActivityRecyclerDelBinding
+import com.sserhiichyk.assign02.extensions.*
+import com.sserhiichyk.assign02.recycler.RecyclerAdapterDel
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-class RecyclerAddActivity : AppCompatActivity(), ItemTouchHelperAdapter {
-    private lateinit var binding: ActivityRecyclerAddBinding
+class RecyclerActivityDel : AppCompatActivity(), ItemTouchHelperAdapter {
+    private lateinit var binding: ActivityRecyclerDelBinding
     private lateinit var preferences: SharedPreferences
 
-    private val recyclerAdapterAdd by lazy { RecyclerAdapterAdd(onContactListener = this) }
+    private val recyclerAdapterDel by lazy { RecyclerAdapterDel(onContactListener = this) }
     val dataListViewModel by lazy { DataListViewModel() }
 
     init {
         Log.i(
-            "MainActivity", "RecyclerAddActivity init ".plus(
+            "MainActivity", "RecyclerActivityDel init ".plus(
                 LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy: HH.mm.ss.SSS"))
             )
         )
@@ -45,28 +45,18 @@ class RecyclerAddActivity : AppCompatActivity(), ItemTouchHelperAdapter {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRecyclerAddBinding.inflate(layoutInflater)
+
+        binding = ActivityRecyclerDelBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initPreferences()
 
-        binding.recyclerViewAdd.layoutManager = LinearLayoutManager(this)
-        binding.recyclerViewAdd.adapter = recyclerAdapterAdd
+        binding.recyclerViewDel.layoutManager = LinearLayoutManager(this)
+        binding.recyclerViewDel.adapter = recyclerAdapterDel
 
-        preferences = getSharedPreferences(Constants.preferencesContacts, Context.MODE_PRIVATE)
-
-        supportFragmentManager.setFragmentResultListener("userCreat", this) { key, bundle ->
-            val creatUser = bundle.getBoolean("creatUser", false)
-            if (creatUser) {
-                recreatList("")
-            }
-        }
+        val callback: ItemTouchHelper.Callback = TouchHelper(this)
+        ItemTouchHelper(callback).attachToRecyclerView(binding.recyclerViewDel)
 
         setListeners()
-
-        Log.i(
-            "MainActivity", "RecyclerAddActivity onCreate ".plus(
-                LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy: HH.mm.ss.SSS"))
-            )
-        )
 
     }
 
@@ -77,7 +67,7 @@ class RecyclerAddActivity : AppCompatActivity(), ItemTouchHelperAdapter {
 
         Log.i(
             "MainActivity",
-            "RecyclerAddActivity onStart() called ".plus(
+            "RecyclerActivityDel onStart() called ".plus(
                 LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy: HH.mm.ss.SSS"))
             )
         )
@@ -85,37 +75,49 @@ class RecyclerAddActivity : AppCompatActivity(), ItemTouchHelperAdapter {
 
     @SuppressLint("NotifyDataSetChanged")
     fun recreatList(filterList: String) {
-        recyclerAdapterAdd.datasetAdd = dataListViewModel.creatUserListAdd()
-        if (filterList.isEmpty()) recyclerAdapterAdd.arrayItem = recyclerAdapterAdd.datasetAdd
-        else recyclerAdapterAdd.arrayItem = userListFilter(filterList)
+        recyclerAdapterDel.datasetDel = dataListViewModel.creatUserListDel()
+        if (filterList.isEmpty()) recyclerAdapterDel.arrayItem = recyclerAdapterDel.datasetDel
+        else recyclerAdapterDel.arrayItem = userListFilter(filterList)
 
-        if (!isMultiSelect) dataListViewModel.arrayCheckInit(recyclerAdapterAdd.arrayItem, false)
+        if (!isMultiSelect) dataListViewModel.arrayCheckInit(recyclerAdapterDel.arrayItem, false)
         else {
             binding.checkBox2.visible()
             binding.imageView12.visible()
         }
 
-        recyclerAdapterAdd.notifyDataSetChanged()
+        Log.i(
+            "MainActivity",
+            "RecyclerActivityDel recreatList ".plus(
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy: HH.mm.ss.SSS"))
+            )
+        )
+
+        recyclerAdapterDel.notifyDataSetChanged()
     }
 
     private fun userListFilter(filterList: String): ArrayList<DataUser> {
         val users: ArrayList<DataUser> = ArrayList()
 
-        for (i in recyclerAdapterAdd.datasetAdd.indices) {
-            if (recyclerAdapterAdd.datasetAdd[i].name.lowercase()
+        for (i in recyclerAdapterDel.datasetDel.indices) {
+            if (recyclerAdapterDel.datasetDel[i].name.lowercase()
                     .indexOf(filterList.lowercase()) >= 0
             ) {
-                users.add(recyclerAdapterAdd.datasetAdd[i])
+                users.add(recyclerAdapterDel.datasetDel[i])
             }
         }
 
         return users
     }
 
-
     @SuppressLint("NotifyDataSetChanged")
     private fun setListeners() {
         with(binding) {
+
+            textView.setOnClickListener {
+                val intent = Intent(applicationContext, RecyclerAddActivity::class.java)
+                isMultiSelect = false
+                startActivity(intent)
+            }
 
             imageView3.setOnClickListener {
                 isMultiSelect = false
@@ -150,23 +152,23 @@ class RecyclerAddActivity : AppCompatActivity(), ItemTouchHelperAdapter {
             })
 
             checkBox2.setOnCheckedChangeListener { _, isChecked ->
-                dataListViewModel.arrayCheckInit(recyclerAdapterAdd.arrayItem, isChecked)
-                recyclerAdapterAdd.notifyDataSetChanged()
+                dataListViewModel.arrayCheckInit(recyclerAdapterDel.arrayItem, isChecked)
+                recyclerAdapterDel.notifyDataSetChanged()
             }
 
-            recyclerViewAdd.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+            recyclerViewDel.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
                 val positionView =
-                    (recyclerViewAdd.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
+                    (recyclerViewDel.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
                 if ((positionView > 3) && (!isMultiSelect)) imageView13.visible()
                 else imageView13.invisible()
             }
 
             imageView13.setOnClickListener {
-                recyclerViewAdd.smoothScrollToPosition(0)
+                recyclerViewDel.smoothScrollToPosition(0)
             }
 
             imageView12.setOnClickListener {
-                val count = dataListViewModel.arrayCheckedMove(recyclerAdapterAdd.arrayItem, true)
+                val count = dataListViewModel.arrayCheckedMove(recyclerAdapterDel.arrayItem, false)
                 var isDeleteCansel = true
                 recreatList("")
                 isMultiSelect = false
@@ -174,8 +176,8 @@ class RecyclerAddActivity : AppCompatActivity(), ItemTouchHelperAdapter {
                 imageView12.invisible()
                 if (count > 0) {
                     val deletedContacts =
-                        if (count == 1) "Добавлен ".plus(count).plus(" контакт")
-                        else "Добавлено ".plus(count).plus(" контактов")
+                        if (count == 1) "Удален ".plus(count).plus(" контакт")
+                        else "Удалено ".plus(count).plus(" контактов")
                     val snackbar =
                         Snackbar.make(binding.root, deletedContacts, Constants.snackbarDuration)
                             .addCallback(object : BaseTransientBottomBar.BaseCallback<Snackbar>() {
@@ -210,12 +212,42 @@ class RecyclerAddActivity : AppCompatActivity(), ItemTouchHelperAdapter {
                 }
             }
 
-            customButton.setOnClickListener {
-                Constants.userAvatar = ""
-                CreateUserDFragment().show(supportFragmentManager, "CreateUserDFragment")
+        }
+    }
+
+    private fun initPreferences() {
+        val arrayInt: ArrayList<Int>
+        var toPreferences = ""
+
+        Log.i(
+            "MainActivity", "RecyclerActivityDel initPreferences ".plus(
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy: HH.mm.ss.SSS"))
+            )
+        )
+
+        preferences = getSharedPreferences(Constants.preferencesContacts, Context.MODE_PRIVATE)
+        if (!Constants.crutch) {
+            //TODO: повторная инициализация при повороте экрана
+
+            if (preferences.contains(Constants.preferencesData)) {
+                toPreferences = preferences.getString(Constants.preferencesData, "").toString()
             }
 
+            if (toPreferences.isNotEmpty()) {
+                arrayInt = preferences.getIntArray(toPreferences)
+                for (i in arrayInt.indices) {
+                    dataListViewModel.setInContact(arrayInt[i], true)
+                }
+            } else {
+                arrayInt = arrayListOf(3, 21, 34, 46, 72, 93)
+
+                for (i in arrayInt.indices) {
+                    dataListViewModel.setInContact(arrayInt[i], true)
+                }
+            }
+            Constants.crutch = true
         }
+
     }
 
     override fun onItemClick(position: Int) {
@@ -231,7 +263,10 @@ class RecyclerAddActivity : AppCompatActivity(), ItemTouchHelperAdapter {
     override fun onItemButtonClick(position: Int) {
         val builder = AlertDialog.Builder(this)
         val dataUser = dataListViewModel.infoUser(position)
+        val male =
+            if (dataUser.avatarUrl.indexOf("female") >= 0) R.string.unworthy2 else R.string.unworthy1
         var isDelete = true
+
         val snackbar = Snackbar.make(binding.root, dataUser.name, Constants.snackbarDuration)
             .addCallback(object : BaseTransientBottomBar.BaseCallback<Snackbar>() {
                 override fun onShown(transientBottomBar: Snackbar?) {
@@ -244,12 +279,23 @@ class RecyclerAddActivity : AppCompatActivity(), ItemTouchHelperAdapter {
                     if (!isDelete) {
                         dataListViewModel.resurrection()
                         recreatList("")
+
+                        Toast.makeText(
+                            applicationContext, "No",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     } else {
+
                         val editor = preferences.edit()
                         editor.putIntArray(
                             Constants.preferencesData,
                             dataListViewModel.arrayToPreferences()
                         ).apply()
+
+                        Toast.makeText(
+                            applicationContext, "Yes",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                     dataListViewModel.setIsSelect(position, false)
                 }
@@ -258,10 +304,11 @@ class RecyclerAddActivity : AppCompatActivity(), ItemTouchHelperAdapter {
                 isDelete = false
             }
 
-        builder.setTitle("Добавить").setMessage(dataUser.name).setIcon(R.drawable.ic_like)
-            .setCancelable(true).setPositiveButton("Нет") { _, _ -> }
-            .setNegativeButton("Да") { _, _ ->
-                dataListViewModel.setInContact(position, true)
+
+        builder.setTitle("Приговор").setMessage(dataUser.name).setIcon(R.drawable.ic_dislike)
+            .setCancelable(true).setPositiveButton("Подумать") { _, _ -> }
+            .setNegativeButton(male) { _, _ ->
+                dataListViewModel.setInContact(position, false)
                 dataListViewModel.setIsSelect(position, true)
                 recreatList("")
                 snackbar.view.setBackgroundColor(getColor(R.color.c_dislike))
@@ -285,10 +332,47 @@ class RecyclerAddActivity : AppCompatActivity(), ItemTouchHelperAdapter {
                 imageView12.invisible()
             }
         }
-        dataListViewModel.arrayCheckInit(recyclerAdapterAdd.arrayItem, false)
-        recyclerAdapterAdd.notifyDataSetChanged()
+        dataListViewModel.arrayCheckInit(recyclerAdapterDel.arrayItem, false)
+        recyclerAdapterDel.notifyDataSetChanged()
     }
 
-    override fun onItemDismiss(positionAdapter: Int) {}
+    @SuppressLint("NotifyDataSetChanged")
+    override fun onItemDismiss(positionAdapter: Int) {
+        val dataUser = recyclerAdapterDel.arrayItem[positionAdapter]
+        val position = dataUser.id
 
+        dataListViewModel.setInContact(position, false)
+        dataListViewModel.setIsSelect(position, true)
+        recyclerAdapterDel.notifyItemRemoved(positionAdapter)
+
+        var isDelete = true
+        val snackbar = Snackbar.make(binding.root, dataUser.name, Constants.snackbarDuration)
+            .addCallback(object : BaseTransientBottomBar.BaseCallback<Snackbar>() {
+                override fun onShown(transientBottomBar: Snackbar?) {
+                    super.onShown(transientBottomBar)
+                }
+
+                override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
+                    super.onDismissed(transientBottomBar, event)
+
+                    if (!isDelete) {
+                        dataListViewModel.resurrection()
+                    } else {
+                        val editor = preferences.edit()
+                        editor.putIntArray(
+                            Constants.preferencesData,
+                            dataListViewModel.arrayToPreferences()
+                        ).apply()
+                    }
+                    dataListViewModel.setIsSelect(position, false)
+                    recreatList("")
+                }
+
+            }).setAction("Cansel") {
+                isDelete = false
+            }
+
+        snackbar.view.setBackgroundColor(getColor(R.color.c_dislike))
+        snackbar.show()
+    }
 }

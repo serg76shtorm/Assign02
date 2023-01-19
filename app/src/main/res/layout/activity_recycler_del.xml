@@ -5,15 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/c_background"
-    tools:context=".RecyclerAddActivity">
+    tools:context=".RecyclerActivityDel">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/layout_height_dp"
         android:background="@color/c_background_dark"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/global_middle"
+            android:layout_marginBottom="@dimen/global_middle"
+            android:text="@string/add_contacts"
+            android:textColor="@color/f_white_static"
+            android:textSize="@dimen/font_standart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <LinearLayout
             android:id="@+id/linearLayout1"
@@ -99,20 +110,6 @@
                 tools:ignore="ContentDescription" />
         </LinearLayout>
 
-        <com.sserhiichyk.assign02.views.CustomButton
-            android:id="@+id/customButton"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/btn_height_1"
-            android:layout_marginEnd="@dimen/global_middle"
-            android:layout_marginBottom="@dimen/global_middle"
-            android:background="@drawable/krugliye_ugli"
-            android:text="@string/create_user"
-            android:textColor="@color/f_red_error"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintWidth_percent="0.5"
-            app:valueAnimator="true" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.Guideline
@@ -127,20 +124,21 @@
         android:layout_width="wrap_content"
         android:layout_height="@dimen/recycler_checkbox"
         android:layout_marginStart="@dimen/global_middle_long"
+        android:background="@color/c_background"
         android:text="@string/all_in"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guideline2" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_add"
+        android:id="@+id/recycler_view_del"
         android:layout_width="match_parent"
         android:layout_height="@dimen/layout_height_dp"
         android:background="@color/c_background"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/checkBox2"
-        tools:listitem="@layout/activity_item_recycler_add" />
+        tools:listitem="@layout/activity_item_recycler_del" />
 
     <ImageView
         android:id="@+id/imageView12"
@@ -151,7 +149,7 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_add_all"
+        app:srcCompat="@drawable/ic_basket_all"
         tools:ignore="ContentDescription" />
 
     <ImageView
