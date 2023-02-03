@@ -8,8 +8,9 @@ import com.nostra13.universalimageloader.core.ImageLoader
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration
 import com.squareup.picasso.Picasso
 
-fun ImageView.loadImageLibrarys(url: String, lib: Int) {
+fun ImageView.loadImageLibraries(url: String, lib: Int) {
     when (lib) {
+        // some magic numbers
         //loadImageWithGlide
         0 -> loadImageWithGlide(url)
         //loadImageWithPicasso
@@ -48,3 +49,6 @@ fun ImageView.loadImageWithFresco(url: String) {
     setImageURI(url.toUri())
 }
 
+fun ImageView.loadImage(url: String) {
+    loadImageWithPicasso(url)
+}

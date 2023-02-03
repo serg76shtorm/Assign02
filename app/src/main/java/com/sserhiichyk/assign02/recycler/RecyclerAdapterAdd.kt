@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sserhiichyk.assign02.com.sserhiichyk.assign02.data.Constants
 import com.sserhiichyk.assign02.com.sserhiichyk.assign02.utils.ItemTouchHelperAdapter
-import com.sserhiichyk.assign02.data.DataUser
+import com.sserhiichyk.assign02.data.UserModel
 import com.sserhiichyk.assign02.databinding.ActivityItemRecyclerAddBinding
 import com.sserhiichyk.assign02.extensions.gone
 import com.sserhiichyk.assign02.extensions.invisible
-import com.sserhiichyk.assign02.extensions.loadImageLibrarys
+import com.sserhiichyk.assign02.extensions.loadImageLibraries
 import com.sserhiichyk.assign02.extensions.visible
 import com.sserhiichyk.assign02.utils.DiffCallback
 import java.time.LocalDateTime
@@ -19,10 +19,10 @@ import java.time.format.DateTimeFormatter
 
 class RecyclerAdapterAdd(
     private val onContactListener: ItemTouchHelperAdapter
-) : ListAdapter<DataUser, RecyclerAdapterAdd.ViewHolder>(DiffCallback()) {
+) : ListAdapter<UserModel, RecyclerAdapterAdd.ViewHolder>(DiffCallback()) {
 
-    lateinit var datasetAdd: ArrayList<DataUser>
-    lateinit var arrayItem: ArrayList<DataUser>
+    lateinit var datasetAdd: ArrayList<UserModel>
+    lateinit var arrayItem: ArrayList<UserModel>
 
     init {
 
@@ -70,7 +70,7 @@ class RecyclerAdapterAdd(
                     imageButton.visible()
                 }
 
-                imageView.loadImageLibrarys(itemDataUser.avatarUrl, itemDataUser.imageLoad)
+                imageView.loadImageLibraries(itemDataUser.avatarUrl, itemDataUser.imageLoad)
 
 
                 imageButton.setOnClickListener {

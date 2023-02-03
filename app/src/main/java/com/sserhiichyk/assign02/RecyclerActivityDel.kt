@@ -21,7 +21,7 @@ import com.sserhiichyk.assign02.com.sserhiichyk.assign02.fragments.ProfileUserDF
 import com.sserhiichyk.assign02.com.sserhiichyk.assign02.recycler.TouchHelper
 import com.sserhiichyk.assign02.com.sserhiichyk.assign02.utils.ItemTouchHelperAdapter
 import com.sserhiichyk.assign02.data.DataListViewModel
-import com.sserhiichyk.assign02.data.DataUser
+import com.sserhiichyk.assign02.data.UserModel
 import com.sserhiichyk.assign02.databinding.ActivityRecyclerDelBinding
 import com.sserhiichyk.assign02.extensions.*
 import com.sserhiichyk.assign02.recycler.RecyclerAdapterDel
@@ -95,8 +95,8 @@ class RecyclerActivityDel : AppCompatActivity(), ItemTouchHelperAdapter {
         recyclerAdapterDel.notifyDataSetChanged()
     }
 
-    private fun userListFilter(filterList: String): ArrayList<DataUser> {
-        val users: ArrayList<DataUser> = ArrayList()
+    private fun userListFilter(filterList: String): ArrayList<UserModel> {
+        val users: ArrayList<UserModel> = ArrayList()
 
         for (i in recyclerAdapterDel.datasetDel.indices) {
             if (recyclerAdapterDel.datasetDel[i].name.lowercase()

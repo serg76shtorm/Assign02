@@ -18,7 +18,7 @@ import com.sserhiichyk.assign02.com.sserhiichyk.assign02.fragments.CreateUserDFr
 import com.sserhiichyk.assign02.com.sserhiichyk.assign02.fragments.ProfileUserDFragment
 import com.sserhiichyk.assign02.com.sserhiichyk.assign02.utils.ItemTouchHelperAdapter
 import com.sserhiichyk.assign02.data.DataListViewModel
-import com.sserhiichyk.assign02.data.DataUser
+import com.sserhiichyk.assign02.data.UserModel
 import com.sserhiichyk.assign02.databinding.ActivityRecyclerAddBinding
 import com.sserhiichyk.assign02.extensions.gone
 import com.sserhiichyk.assign02.extensions.invisible
@@ -85,7 +85,7 @@ class RecyclerAddActivity : AppCompatActivity(), ItemTouchHelperAdapter {
 
     @SuppressLint("NotifyDataSetChanged")
     fun recreatList(filterList: String) {
-        recyclerAdapterAdd.datasetAdd = dataListViewModel.creatUserListAdd()
+        recyclerAdapterAdd.datasetAdd = dataListViewModel.createUserListAdd()
         if (filterList.isEmpty()) recyclerAdapterAdd.arrayItem = recyclerAdapterAdd.datasetAdd
         else recyclerAdapterAdd.arrayItem = userListFilter(filterList)
 
@@ -98,8 +98,8 @@ class RecyclerAddActivity : AppCompatActivity(), ItemTouchHelperAdapter {
         recyclerAdapterAdd.notifyDataSetChanged()
     }
 
-    private fun userListFilter(filterList: String): ArrayList<DataUser> {
-        val users: ArrayList<DataUser> = ArrayList()
+    private fun userListFilter(filterList: String): ArrayList<UserModel> {
+        val users: ArrayList<UserModel> = ArrayList()
 
         for (i in recyclerAdapterAdd.datasetAdd.indices) {
             if (recyclerAdapterAdd.datasetAdd[i].name.lowercase()

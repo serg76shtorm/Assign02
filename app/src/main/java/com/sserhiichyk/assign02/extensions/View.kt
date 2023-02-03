@@ -3,6 +3,7 @@ package com.sserhiichyk.assign02.extensions
 import android.content.SharedPreferences
 import android.view.View
 
+private const val ARRAY_SEPARATOR = ";"
 
 fun View.visible() {
     visibility = View.VISIBLE

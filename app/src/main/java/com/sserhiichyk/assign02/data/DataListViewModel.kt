@@ -9,10 +9,7 @@ import kotlin.collections.ArrayList
 
 class DataListViewModel : ViewModel() {
 
-    companion object {
-        var userList = DataListViewModel().getDataUser()
-
-    }
+        var userList = getDataUser()
 
     init {
 
@@ -36,11 +33,11 @@ class DataListViewModel : ViewModel() {
         return arrayInt.toIntArray()
     }
 
-    fun arrayCheckInit(selectList: ArrayList<DataUser>, state: Boolean) {
+    fun arrayCheckInit(selectList: ArrayList<UserModel>, state: Boolean) {
         selectList.forEach { it.isSelect = state }
     }
 
-    fun arrayCheckedMove(selectList: ArrayList<DataUser>, state: Boolean): Int {
+    fun arrayCheckedMove(selectList: ArrayList<UserModel>, state: Boolean): Int {
         var count = 0
         selectList.forEach {
             if (it.isSelect) {
@@ -70,14 +67,14 @@ class DataListViewModel : ViewModel() {
         userList[id].isSelect = state
     }
 
-    fun addUser(user: DataUser) {
+    fun addUser(user: UserModel) {
         val newList = userList
 
         newList.add(user)
         userList = newList
     }
 
-    fun infoUser(id: Int): DataUser {
+    fun infoUser(id: Int): UserModel {
         return userList[id]
     }
 
@@ -85,18 +82,16 @@ class DataListViewModel : ViewModel() {
         return userList.size
     }
 
-    fun creatUserListDel(): ArrayList<DataUser> {
-        val userListDel = userListAdd(true)
-        return userListDel
+    fun creatUserListDel(): ArrayList<UserModel> {
+        return userListAdd(true)
     }
 
-    fun creatUserListAdd(): ArrayList<DataUser> {
-        val userListAdd = userListAdd(false)
-        return userListAdd
+    fun createUserListAdd(): ArrayList<UserModel> {
+        return userListAdd(false)
     }
 
-    private fun userListAdd(inContacts: Boolean): ArrayList<DataUser> {
-        val users: ArrayList<DataUser> = ArrayList()
+    private fun userListAdd(inContacts: Boolean): ArrayList<UserModel> {
+        val users: ArrayList<UserModel> = ArrayList()
 
         for (i in userList.indices) {
             if (userList[i].inContacts == inContacts) {
@@ -116,18 +111,18 @@ class DataListViewModel : ViewModel() {
         return randomDate.time.toString()
     }
 
-    fun getDataUser(): ArrayList<DataUser> {
+    fun getDataUser(): ArrayList<UserModel> {
         val listOfMale: List<DataMale> = getMaleList()
         val listOfFemale: List<DataFemale> = getFemaleList()
         val listOfCareer: List<String> = getCareerList()
-        val listUsers = ArrayList<DataUser>()
+        val listUsers = ArrayList<UserModel>()
 
         for (i in listOfMale.indices) {
             listUsers.add(
-                DataUser(
+                UserModel(
                     i * 2,
                     "https://xsgames.co/randomusers/assets/avatars/female/$i.jpg",
-                    listOfFemale[i].name,
+                    name = listOfFemale[i].name,
                     listOfCareer[i * 2 % listOfCareer.size],
                     listOfFemale[i].gender,
                     (i * 2) % 4,
@@ -141,7 +136,7 @@ class DataListViewModel : ViewModel() {
             )
 
             listUsers.add(
-                DataUser(
+                UserModel(
                     i * 2 + 1,
                     "https://xsgames.co/randomusers/assets/avatars/male/$i.jpg",
                     listOfMale[i].name,

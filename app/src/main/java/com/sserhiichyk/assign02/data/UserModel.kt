@@ -1,6 +1,6 @@
 package com.sserhiichyk.assign02.data
 
-data class DataUser(
+data class UserModel(
     var id: Int,
     var avatarUrl: String,
     var name: String,
@@ -34,3 +34,8 @@ data class DataFemale(
     val name: String,
     val gender: Int
 )
+
+//enum class Gender(val value: String) {
+//    MALE("male"),
+//    FEMALE("female")
+//}

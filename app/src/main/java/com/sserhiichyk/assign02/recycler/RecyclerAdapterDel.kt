@@ -6,21 +6,21 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sserhiichyk.assign02.databinding.ActivityItemRecyclerDelBinding
-import com.sserhiichyk.assign02.extensions.loadImageLibrarys
+import com.sserhiichyk.assign02.extensions.loadImageLibraries
 import com.sserhiichyk.assign02.utils.DiffCallback
 import com.sserhiichyk.assign02.com.sserhiichyk.assign02.data.Constants
 import com.sserhiichyk.assign02.com.sserhiichyk.assign02.utils.ItemTouchHelperAdapter
-import com.sserhiichyk.assign02.data.DataUser
+import com.sserhiichyk.assign02.data.UserModel
 import com.sserhiichyk.assign02.extensions.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 class RecyclerAdapterDel(
     private val onContactListener: ItemTouchHelperAdapter
-) : ListAdapter<DataUser, RecyclerAdapterDel.ViewHolder>(DiffCallback()) {
+) : ListAdapter<UserModel, RecyclerAdapterDel.ViewHolder>(DiffCallback()) {
 
-    lateinit var datasetDel: ArrayList<DataUser>
-    lateinit var arrayItem: ArrayList<DataUser>
+    lateinit var datasetDel: ArrayList<UserModel>
+    lateinit var arrayItem: ArrayList<UserModel>
 
     init {
 
@@ -68,7 +68,7 @@ class RecyclerAdapterDel(
                     imageButton.visible()
                 }
 
-                imageView.loadImageLibrarys(itemDataUser.avatarUrl, itemDataUser.imageLoad)
+                imageView.loadImageLibraries(itemDataUser.avatarUrl, itemDataUser.imageLoad)
 
                 imageButton.setOnClickListener {
                     onContactListener.onItemButtonClick(itemDataUser.id)

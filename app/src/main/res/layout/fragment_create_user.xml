@@ -108,8 +108,6 @@
                     style="@style/textinputedittext"
                     android:layout_marginEnd="@dimen/global_middle"
                     android:hint="@string/jobless"
-                    android:inputType="none"
-
                     tools:ignore="LabelFor" />
             </com.google.android.material.textfield.TextInputLayout>
 

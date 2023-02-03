@@ -8,14 +8,14 @@ import androidx.fragment.app.DialogFragment
 import com.sserhiichyk.assign02.R
 import com.sserhiichyk.assign02.com.sserhiichyk.assign02.data.Constants.idUser
 import com.sserhiichyk.assign02.data.DataListViewModel
-import com.sserhiichyk.assign02.data.DataUser
+import com.sserhiichyk.assign02.data.UserModel
 import com.sserhiichyk.assign02.databinding.ActivityContactsProfileBinding
 import com.sserhiichyk.assign02.extensions.*
 
 class ProfileUserDFragment : DialogFragment() {
     private lateinit var binding: ActivityContactsProfileBinding
     private var contact: Int = 0
-    private lateinit var dataUser: DataUser
+    private lateinit var userModel: UserModel
 
     companion object {
         val TAG = ProfileUserDFragment::class.java.simpleName
@@ -29,7 +29,7 @@ class ProfileUserDFragment : DialogFragment() {
             contact = it.getInt(idUser)
         }
 
-        dataUser = DataListViewModel().infoUser(contact)
+        userModel = DataListViewModel().infoUser(contact)
         setStyle(STYLE_NORMAL, R.style.BagDialogFragment)
     }
 
@@ -46,10 +46,10 @@ class ProfileUserDFragment : DialogFragment() {
             button2.invisible()
             imageView10.visible()
 
-            imageView6.loadImageWithFresco(dataUser.avatarUrl)
-            textView.text = dataUser.name
-            textView2.text = dataUser.career
-            textView3.text = dataUser.address
+            imageView6.loadImageWithFresco(userModel.avatarUrl)
+            textView.text = userModel.name
+            textView2.text = userModel.career
+            textView3.text = userModel.address
         }
 
         return binding.root

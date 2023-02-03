@@ -17,18 +17,20 @@ import androidx.fragment.app.setFragmentResultListener
 import com.sserhiichyk.assign02.R
 import com.sserhiichyk.assign02.com.sserhiichyk.assign02.data.Constants.userAvatar
 import com.sserhiichyk.assign02.data.DataListViewModel
-import com.sserhiichyk.assign02.data.DataUser
+import com.sserhiichyk.assign02.data.Gender
+import com.sserhiichyk.assign02.data.UserModel
 import com.sserhiichyk.assign02.databinding.FragmentCreateUserBinding
 import com.sserhiichyk.assign02.extensions.loadImageWithGlide
 import java.util.*
 
 class CreateUserDFragment : DialogFragment() {
     private lateinit var binding: FragmentCreateUserBinding
-    private val dataListViewModel by lazy { DataListViewModel() }
 
-    private val newUser = DataUser(
-        dataListViewModel.getDataListSize(), "", "", "", 0,
-        0, "", "", "", "", false, false
+    private val dataListViewModel by lazy { DataListViewModel() } // remove viewmodel from dialog
+
+    private val newUser = UserModel(
+        id = 12,
+        gender = Gender.FEMALE
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,8 +74,13 @@ class CreateUserDFragment : DialogFragment() {
         with(binding) {
             button3.setOnClickListener {
                 var errorText = ""
-
-                if (teUsername.text!!.isEmpty() || newUser.avatarUrl.isEmpty()) {
+                val nullableValue: String? = "someString"
+                nullableValue?.let {
+                    // do something with value
+                }?: run {
+                    // show error
+                }
+                if (teUsername.text.toString().isEmpty() || newUser.avatarUrl.isEmpty()) {
 
                     if (teUsername.text!!.isEmpty()) errorText = errorText.plus("Введите Имя")
                     if (newUser.avatarUrl.isEmpty()) {
@@ -87,6 +94,7 @@ class CreateUserDFragment : DialogFragment() {
 
                 if (!tiUsername.isErrorEnabled) {
                     newUser.id = dataListViewModel.getDataListSize()
+                    setFragmentResult(key, bundleOf(giveData))
                     newUser.name = teUsername.text.toString()
                     if (actCareer.text.isEmpty()) newUser.career = getString(R.string.jobless)
                     else newUser.career = actCareer.text.toString()
