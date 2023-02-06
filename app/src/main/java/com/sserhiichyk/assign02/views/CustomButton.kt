@@ -13,15 +13,15 @@ import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
 import androidx.core.content.res.ResourcesCompat
 import com.sserhiichyk.assign02.R
-import com.sserhiichyk.assign02.com.sserhiichyk.assign02.data.Constants.durationG
-import com.sserhiichyk.assign02.com.sserhiichyk.assign02.data.Constants.margin
-import com.sserhiichyk.assign02.com.sserhiichyk.assign02.data.Constants.timeG
-import com.sserhiichyk.assign02.com.sserhiichyk.assign02.data.Constants.timeText
+import com.sserhiichyk.assign02.com.sserhiichyk.assign02.data.Constants.durationGoogle
+import com.sserhiichyk.assign02.com.sserhiichyk.assign02.data.Constants.marginGoogle
+import com.sserhiichyk.assign02.com.sserhiichyk.assign02.data.Constants.timeImageGoogle
+import com.sserhiichyk.assign02.com.sserhiichyk.assign02.data.Constants.timeTextGoogle
 import kotlin.math.sin
 
 
 class CustomButton @JvmOverloads constructor(
-    context: Context, attrs: AttributeSet, defStyleAttr: Int = 0  //@AttrRes
+    context: Context, attrs: AttributeSet, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
 
     private val paint = Paint().apply {
@@ -32,10 +32,10 @@ class CustomButton @JvmOverloads constructor(
 
     private var text = resources.getText(R.string.create_user).toString()
     private var textBounds: Rect = Rect(0, 0, 0, 0)
-    private var moveGX = 0
-    private var moveGY = 0
-    private var moveG = true
-    private var moveGMirror = false
+    private var moveGoogleX = 0
+    private var moveGoogleY = 0
+    private var moveGoogle = true
+    private var moveGoogleMirror = false
     private var widthViewMove = 0
     private val vectorDrawable: Drawable =
         ResourcesCompat.getDrawable(resources, R.drawable.ic_g, null)!!
@@ -97,9 +97,9 @@ class CustomButton @JvmOverloads constructor(
         super.onSizeChanged(w, h, oldw, oldh)
 
         widthViewMove = w / 2
-        moveGY = h / 2 - pictureImage.height / 2
-        moveGX = w / 2 - pictureImage.width - margin
-        moveG = true
+        moveGoogleY = h / 2 - pictureImage.height / 2
+        moveGoogleX = w / 2 - pictureImage.width - marginGoogle
+        moveGoogle = true
 
         textInit(w, h)
 
@@ -113,7 +113,7 @@ class CustomButton @JvmOverloads constructor(
         textAnimator.clear()
         paint.getTextBounds(text, 0, text.length, textBounds)
 
-        var charPositionX: Float = (w / 2 + margin).toFloat()
+        var charPositionX: Float = (w / 2 + marginGoogle).toFloat()
         val charPositionY: Float = (h / 2 + (textBounds.height() / 2 - textBounds.bottom)).toFloat()
 
         text.forEachIndexed { i, it ->
@@ -139,7 +139,7 @@ class CustomButton @JvmOverloads constructor(
 
         if (canvas != null) {
 
-            if (moveGMirror) {
+            if (moveGoogleMirror) {
                 val matrixMirror = Matrix()
                 matrixMirror.preScale(-1f, 1f)
                 val newBitmap = Bitmap.createBitmap(
@@ -152,9 +152,9 @@ class CustomButton @JvmOverloads constructor(
                     false
                 )
 
-                canvas.drawBitmap(newBitmap, moveGX.toFloat(), moveGY.toFloat(), paint)
+                canvas.drawBitmap(newBitmap, moveGoogleX.toFloat(), moveGoogleY.toFloat(), paint)
             } else {
-                canvas.drawBitmap(pictureImage, moveGX.toFloat(), moveGY.toFloat(), paint)
+                canvas.drawBitmap(pictureImage, moveGoogleX.toFloat(), moveGoogleY.toFloat(), paint)
             }
 
             textAnimator.forEach {
@@ -167,41 +167,41 @@ class CustomButton @JvmOverloads constructor(
     @SuppressLint("Recycle")
     fun animation() {
 
-        val imageAnimator1 = ValueAnimator.ofFloat(0f, timeG.toFloat())
-        val widthMove = widthViewMove - pictureImage.width - margin
-        val animatorSteps = (widthMove) / timeG.toFloat()
+        val imageAnimator1 = ValueAnimator.ofFloat(0f, timeImageGoogle.toFloat())
+        val widthMove = widthViewMove - pictureImage.width - marginGoogle
+        val animatorSteps = (widthMove) / timeImageGoogle.toFloat()
         var zero = false
         imageAnimator1.interpolator = LinearInterpolator()
-        imageAnimator1.duration = durationG
+        imageAnimator1.duration = durationGoogle
 
-        moveGX = widthMove
+        moveGoogleX = widthMove
         imageAnimator1.doOnEnd {
-            moveGX = widthMove
+            moveGoogleX = widthMove
         }
 
         imageAnimator1.addUpdateListener {
             val value = it.animatedValue as Float
 
-            if (moveG) moveGX += animatorSteps.toInt()
-            else if (zero) moveGX -= animatorSteps.toInt()
+            if (moveGoogle) moveGoogleX += animatorSteps.toInt()
+            else if (zero) moveGoogleX -= animatorSteps.toInt()
 
             if ((value.toInt() == 0) && (!zero)) {
-                moveGMirror = true
-                moveG = false
+                moveGoogleMirror = true
+                moveGoogle = false
                 zero = true
-            } else if (value.toInt() == timeG / 2) {
-                moveGMirror = false
-                moveG = true
-            } else if (value.toInt() == timeG) {
-                moveGMirror = false
+            } else if (value.toInt() == timeImageGoogle / 2) {
+                moveGoogleMirror = false
+                moveGoogle = true
+            } else if (value.toInt() == timeImageGoogle) {
+                moveGoogleMirror = false
             }
 
             invalidate()
         }
 
-        val imageAnimator2 = ValueAnimator.ofFloat(0f, timeText.toFloat())
+        val imageAnimator2 = ValueAnimator.ofFloat(0f, timeTextGoogle.toFloat())
         imageAnimator2.interpolator = LinearInterpolator()
-        imageAnimator2.duration = durationG
+        imageAnimator2.duration = durationGoogle
         val amplitude = textBounds.height() / 2
 
         imageAnimator2.doOnStart {
@@ -226,7 +226,7 @@ class CustomButton @JvmOverloads constructor(
 */
             }
 
-            if (valueInt == timeText) {
+            if (valueInt == timeTextGoogle) {
                 textAnimator.forEach {
                     it.posY = it.copyPosY
                 }
@@ -236,8 +236,8 @@ class CustomButton @JvmOverloads constructor(
         }
 
         val imageAnimatorSet = AnimatorSet()
-        imageAnimatorSet.play(imageAnimator1).after(durationG).after(imageAnimator2)
-        imageAnimatorSet.duration = durationG
+        imageAnimatorSet.play(imageAnimator1).after(durationGoogle).after(imageAnimator2)
+        imageAnimatorSet.duration = durationGoogle
         imageAnimatorSet.startDelay = 2000L
         imageAnimatorSet.doOnEnd {
             it.start()

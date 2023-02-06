@@ -1,4 +1,4 @@
-package com.sserhiichyk.assign02.com.sserhiichyk.assign02.utils
+package com.sserhiichyk.assign02.com.sserhiichyk.assign02.recycler.utils
 
 interface ItemTouchHelperAdapter {
 

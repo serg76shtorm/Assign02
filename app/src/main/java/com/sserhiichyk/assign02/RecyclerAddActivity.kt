@@ -14,9 +14,9 @@ import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.sserhiichyk.assign02.com.sserhiichyk.assign02.data.Constants
 import com.sserhiichyk.assign02.com.sserhiichyk.assign02.data.Constants.isMultiSelect
-import com.sserhiichyk.assign02.com.sserhiichyk.assign02.fragments.CreateUserDFragment
-import com.sserhiichyk.assign02.com.sserhiichyk.assign02.fragments.ProfileUserDFragment
-import com.sserhiichyk.assign02.com.sserhiichyk.assign02.utils.ItemTouchHelperAdapter
+import com.sserhiichyk.assign02.com.sserhiichyk.assign02.fragments.CreateUserDialogFragment
+import com.sserhiichyk.assign02.com.sserhiichyk.assign02.fragments.ProfileUserDialogFragment
+import com.sserhiichyk.assign02.com.sserhiichyk.assign02.recycler.utils.ItemTouchHelperAdapter
 import com.sserhiichyk.assign02.data.DataListViewModel
 import com.sserhiichyk.assign02.data.DataUser
 import com.sserhiichyk.assign02.databinding.ActivityRecyclerAddBinding
@@ -212,20 +212,20 @@ class RecyclerAddActivity : AppCompatActivity(), ItemTouchHelperAdapter {
 
             customButton.setOnClickListener {
                 Constants.userAvatar = ""
-                CreateUserDFragment().show(supportFragmentManager, "CreateUserDFragment")
+                CreateUserDialogFragment().show(supportFragmentManager, "CreateUserDFragment")
             }
 
         }
     }
 
     override fun onItemClick(position: Int) {
-        val profileUserFragment = ProfileUserDFragment()
+        val profileUserFragment = ProfileUserDialogFragment()
         val bundle = Bundle()
 
         bundle.putInt(Constants.idUser, position)
         profileUserFragment.arguments = bundle
 
-        profileUserFragment.show(supportFragmentManager, ProfileUserDFragment.TAG)
+        profileUserFragment.show(supportFragmentManager, ProfileUserDialogFragment.TAG)
     }
 
     override fun onItemButtonClick(position: Int) {

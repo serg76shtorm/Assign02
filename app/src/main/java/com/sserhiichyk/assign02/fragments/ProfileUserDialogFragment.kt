@@ -12,13 +12,13 @@ import com.sserhiichyk.assign02.data.DataUser
 import com.sserhiichyk.assign02.databinding.ActivityContactsProfileBinding
 import com.sserhiichyk.assign02.extensions.*
 
-class ProfileUserDFragment : DialogFragment() {
+class ProfileUserDialogFragment : DialogFragment() {
     private lateinit var binding: ActivityContactsProfileBinding
     private var contact: Int = 0
     private lateinit var dataUser: DataUser
 
     companion object {
-        val TAG = ProfileUserDFragment::class.java.simpleName
+        val TAG = ProfileUserDialogFragment::class.java.simpleName
 
     }
 

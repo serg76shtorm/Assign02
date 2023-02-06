@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sserhiichyk.assign02.databinding.ActivityItemRecyclerDelBinding
 import com.sserhiichyk.assign02.extensions.loadImageLibrarys
-import com.sserhiichyk.assign02.utils.DiffCallback
+import com.sserhiichyk.assign02.com.sserhiichyk.assign02.recycler.utils.DiffCallback
 import com.sserhiichyk.assign02.com.sserhiichyk.assign02.data.Constants
-import com.sserhiichyk.assign02.com.sserhiichyk.assign02.utils.ItemTouchHelperAdapter
+import com.sserhiichyk.assign02.com.sserhiichyk.assign02.recycler.utils.ItemTouchHelperAdapter
 import com.sserhiichyk.assign02.data.DataUser
 import com.sserhiichyk.assign02.extensions.*
 import java.time.LocalDateTime

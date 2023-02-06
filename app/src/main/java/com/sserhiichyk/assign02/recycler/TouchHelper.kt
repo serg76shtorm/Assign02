@@ -7,7 +7,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.sserhiichyk.assign02.R
-import com.sserhiichyk.assign02.com.sserhiichyk.assign02.utils.ItemTouchHelperAdapter
+import com.sserhiichyk.assign02.com.sserhiichyk.assign02.recycler.utils.ItemTouchHelperAdapter
 import kotlin.math.abs
 
 class TouchHelper(private val adapter: ItemTouchHelperAdapter) :

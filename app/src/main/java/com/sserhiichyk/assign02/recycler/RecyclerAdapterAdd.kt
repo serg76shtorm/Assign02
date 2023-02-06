@@ -6,14 +6,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sserhiichyk.assign02.com.sserhiichyk.assign02.data.Constants
-import com.sserhiichyk.assign02.com.sserhiichyk.assign02.utils.ItemTouchHelperAdapter
+import com.sserhiichyk.assign02.com.sserhiichyk.assign02.recycler.utils.ItemTouchHelperAdapter
 import com.sserhiichyk.assign02.data.DataUser
 import com.sserhiichyk.assign02.databinding.ActivityItemRecyclerAddBinding
 import com.sserhiichyk.assign02.extensions.gone
 import com.sserhiichyk.assign02.extensions.invisible
 import com.sserhiichyk.assign02.extensions.loadImageLibrarys
 import com.sserhiichyk.assign02.extensions.visible
-import com.sserhiichyk.assign02.utils.DiffCallback
+import com.sserhiichyk.assign02.com.sserhiichyk.assign02.recycler.utils.DiffCallback
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 

@@ -11,12 +11,12 @@ import com.sserhiichyk.assign02.R
 import com.sserhiichyk.assign02.com.sserhiichyk.assign02.adapters.ImageAdapter
 import com.sserhiichyk.assign02.databinding.FragmentAvatarUserBinding
 
-class AvatarUserDFragment : DialogFragment() {
+class AvatarUserDialogFragment : DialogFragment() {
     private lateinit var binding: FragmentAvatarUserBinding
     private val imageAdapter by lazy { ImageAdapter(requireActivity()) }
 
     companion object {
-        val TAG = AvatarUserDFragment::class.java.simpleName
+        val TAG = AvatarUserDialogFragment::class.java.simpleName
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

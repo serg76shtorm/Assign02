@@ -25,9 +25,9 @@ object Constants {
     var crutch = false
 
     //CustomButton
-    const val margin = 16
-    const val timeG = 30
-    const val timeText = 40
-    const val durationG: Long = 1000L
+    const val marginGoogle = 16
+    const val timeImageGoogle = 30
+    const val timeTextGoogle = 40
+    const val durationGoogle: Long = 1000L
 
 }

@@ -22,7 +22,7 @@ import com.sserhiichyk.assign02.databinding.FragmentCreateUserBinding
 import com.sserhiichyk.assign02.extensions.loadImageWithGlide
 import java.util.*
 
-class CreateUserDFragment : DialogFragment() {
+class CreateUserDialogFragment : DialogFragment() {
     private lateinit var binding: FragmentCreateUserBinding
     private val dataListViewModel by lazy { DataListViewModel() }
 
@@ -110,11 +110,11 @@ class CreateUserDFragment : DialogFragment() {
             }
 
             imageView11.setOnClickListener {
-                val avatarUserDFragment = AvatarUserDFragment()
+                val avatarUserDialogFragment = AvatarUserDialogFragment()
 
-                avatarUserDFragment.show(
+                avatarUserDialogFragment.show(
                     (activity as AppCompatActivity).supportFragmentManager,
-                    AvatarUserDFragment.TAG
+                    AvatarUserDialogFragment.TAG
                 )
             }
 
